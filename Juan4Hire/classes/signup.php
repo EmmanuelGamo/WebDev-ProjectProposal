@@ -76,9 +76,10 @@ class Signup
         $password = $data['password'];
         $url_address = strtolower($first_name) ."." . strtolower($last_name);
         $userid = $this->create_userid();
+        $category = $data['category'];
 
-        $query = "insert into users(userid, first_name , last_name, email, password, url_address)
-                        values('$userid','$first_name','$last_name','$email','$password','$url_address')";
+        $query = "insert into users(userid, first_name , last_name, email, password, url_address, category)
+                        values('$userid','$first_name','$last_name','$email','$password','$url_address', '$category')";
 
         $DB = new Database();
         $DB->save($query);

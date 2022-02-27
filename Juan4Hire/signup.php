@@ -59,6 +59,13 @@
             <input type="text" name="email" id="text" placeholder="Email" class="Email" />
             <input type="password" name="password" id="text" placeholder="Password" class="pass" />
             <input type="password" name="con_password"  id="text" placeholder="Confirm Password" class="pass" />
+            <select name="category" id="">
+              <option value="">Category</option>
+              <option value="arts">Arts & Design</option>
+              <option value="elec">Electronics</option>
+              <option value="craft">Handcraft</option>
+              <option value="supp">Support</option>
+            </select>
             <input type="submit" id="button" value="Sign Up" class="btn" />
           </div>
         </div>
