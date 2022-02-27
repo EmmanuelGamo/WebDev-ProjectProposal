@@ -17,7 +17,7 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Categories</a></li>
                 <li><a href="#">Messages</a></li>
-                <li><a href="#">Notifications</a></li>
+                <li><a href="profile.php">Profile</a></li>
                 <li><a href="login.php">Login</a></li>
             </ul>
         </nav>

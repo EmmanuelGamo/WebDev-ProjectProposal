@@ -1,0 +1,159 @@
+:root {
+    font-size: 10px;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #fafafa;
+    color: #262626;
+    padding-bottom: 3rem;
+}
+
+img {
+    display: block;
+}
+
+.container {
+    max-width: 93.5rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.btn {
+    display: inline-block;
+    font: inherit;
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    cursor: pointer;
+}
+
+.btn:focus {
+    outline: 0.5rem auto #4d90fe;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Profile Section */
+
+.profile {
+    padding: 6rem 0;
+}
+.profile::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.profile-image {
+    float: left;
+    padding-top: 8rem;
+    width: calc(33.333% - 1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0rem;
+}
+
+.profile-image img {
+    height: 17rem;
+    border-radius: 50%;
+}
+
+.profile-user-settings,
+.profile-bio {
+    float: left;
+    width: calc(66% - 4rem);
+}
+
+.profile-user-settings {
+    margin-top: 1.0rem;
+    margin-bottom: -3.0rem;
+}
+
+.profile-user-name {
+    display: inline-block;
+    padding-top: 4rem;
+    font-size: 2.8rem;
+    font-weight: 200;
+}
+.profile-edit-btn {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    border: 0.1rem solid #dbdbdb;
+    border-radius: 0.3rem;
+    padding: 0rem 2.4rem;
+    margin-left: 2rem;
+}
+.profile-email {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+.profile-bio {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-align: justify;
+
+}
+.profile-edit-btn {
+    font-weight: 600;
+}
+.divider
+{ 
+    width: 100%; 
+    height: 1.2rem;
+    border-bottom: 1px solid rgb(72, 71, 71); 
+    text-align: center;
+    margin-bottom: 5rem;
+    
+}
+.dividertext
+{   font-size: 2.2rem;
+    background-color: #F3F5F6;
+    padding: 0 10px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem -1rem;
+    padding-bottom: 3rem;
+}
+
+.gallery-item {
+    position: relative;
+    flex: 1 0 22rem;
+    margin: 1rem;
+    color: #fff;
+    cursor: pointer;
+}
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.btn-container{
+    text-align: right;
+}
+.post{
+    width: 20%;
+    background-color: #9BF89D;
+    border: 1px solid #9BFA9D;
+    padding: 12px 12px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+  }
