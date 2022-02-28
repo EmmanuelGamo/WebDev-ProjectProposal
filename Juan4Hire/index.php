@@ -1,67 +1,78 @@
+
+<?php
+session_start();
+
+  include("classes/connect.php");
+  include("classes/login.php");
+  
+  
+  function function_alert($message) 
+  { 
+      echo "<script>alert('$message');</script>";
+  }
+
+  $email = "";
+  $password = "";
+ 
+
+  if($_SERVER['REQUEST_METHOD'] == 'POST') 
+  {
+    $login = new Login();
+    $result = $login->evaluate($_POST);
+    if ($result != "")
+    {
+      function_alert("$result");
+    }
+    else
+    {
+       header("Location: Home.php");
+       die;
+    }
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+  }
+
+?> 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" type = "text/css" href="style.css">
-    <title>Homepage</title>
+    <title>Login</title>
+    <link rel = "stylesheet" type = "text/css" href="login.css">
 </head>
 
 <body>
-    <div class = "navbar">
-        <a class="logo" href="/"><img src="J4Hlogo.png" alt="logo"></a>
-        <input class="search" placeholder="Search" type="text" >
-        <nav>
-            <ul class="nav_links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Messages</a></li>
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="login.php">Login</a></li>
-            </ul>
-        </nav>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <div id="container">
+      <div class="main-content">
+        <div class="logo">
+        <a href="index.php"><img src= "J4Hlogo.png" /></a>
+        </div>
+        <div class="login">
+          <form method="post">
+              <input name = "email" type="text" value="<?php echo $email ?>"  placeholder="Email" class="uname" />
+              <div class="overlap-text">
+                <input name = "password" type="password" value="<?php echo $password ?>"  placeholder="Password" class="pass" />
+                <a href="#">Forgot?</a>
+              </div>
+              <input type="submit" value="Log in" class="btn" />
+          </form>
+        </div>
+      </div>
+      <div class="sub-content">
+        <div class="signup">
+          Don't have an account?<a href="signup.php"> Sign up</a>
+        </div>
+      </div>
     </div>
-    <section class="content-container">
-            <div class="card">
-                <div class="card-image"></div>
-                    <h2>Shop Name</h2>
-                    <p>The standard Lorem Ipsum passage, used since the 1500s
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    <a href="">More</a>
-            </div>
-            <div class="card">
-                <div class="card-image"></div>
-                    <h2>Shop Name</h2>
-                    <p>The standard Lorem Ipsum passage, used since the 1500s
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    <a href="">More</a>
-            </div>
-            </div>
-                <div class="card">
-                    <div class="card-image"></div>
-                        <h2>Shop Name</h2>
-                        <p>The standard Lorem Ipsum passage, used since the 1500s
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    <a href="">More</a>
-            </div>
-
-    </section>
-
-   <div class="footer-container">
-       <div class="footer">
-           <div class="footer-heading footer-1">
-               <a href="#">Contact us</a>
-           </div>
-           <div class="footer-heading footer-2">
-               <a href="#">Privacy Policy</a>
-           </div>
-           <div class="footer-heading footer-3">
-               <a href="#">Terms of Service</a>
-           </div>
-       </div>
-   </div>
-</div>
 </body>
-</html>
+<script>
+  //blocks form resubmission when refreshed
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
 </html>

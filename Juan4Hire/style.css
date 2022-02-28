@@ -79,16 +79,19 @@ li, a {
 .card-image {
     background-color: #94F7B2;
     height: 110px;
+    text-align: center;
     margin-bottom: 15px;
     background-size: cover;
     border-radius: 15px 15px 0 0;
 }
 .card h2 {
     padding: 10px;
+    text-align: center;
 }
 .card p {
     padding: 10px;
-    text-align: justify;
+    text-align: center;
+
 }
 .card a {
     background-color: black;
@@ -135,5 +138,3 @@ li, a {
     color: red;
     transition: 0.3s ease-out;
 }
-
-

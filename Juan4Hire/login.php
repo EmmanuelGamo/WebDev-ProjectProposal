@@ -1,5 +1,4 @@
 
-<!DOCTYPE html>
 <?php
 session_start();
 
@@ -26,7 +25,7 @@ session_start();
     }
     else
     {
-       header("Location: profile.php");
+       header("Location: Home.php");
        die;
     }
 
@@ -36,6 +35,7 @@ session_start();
   }
 
 ?> 
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -49,7 +49,7 @@ session_start();
     <div id="container">
       <div class="main-content">
         <div class="logo">
-          <img src= "J4Hlogo.png" />
+        <a href="index.php"><img src= "J4Hlogo.png" /></a>
         </div>
         <div class="login">
           <form method="post">
@@ -69,4 +69,10 @@ session_start();
       </div>
     </div>
 </body>
+<script>
+  //blocks form resubmission when refreshed
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
 </html>

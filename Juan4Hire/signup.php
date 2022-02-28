@@ -34,7 +34,6 @@
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
   }
-
 ?> 
 
 <html>
@@ -51,7 +50,7 @@
       <div id="container">
         <div class="main-content">
           <div class="logo">
-            <img src= "J4Hlogo.png" />
+          <a href="index.php"><img src= "J4Hlogo.png" /><a>
           </div>
           <div class="signup">
             <input value="<?php echo $first_name ?>" type="text" name= "first_name" id="text" placeholder="First Name" class="Fname" />
@@ -61,10 +60,10 @@
             <input type="password" name="con_password"  id="text" placeholder="Confirm Password" class="pass" />
             <select name="category" id="">
               <option value="">Category</option>
-              <option value="arts">Arts & Design</option>
-              <option value="elec">Electronics</option>
-              <option value="craft">Handcraft</option>
-              <option value="supp">Support</option>
+              <option value="Arts & Design">Arts & Design</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Handcraft">Handcraft</option>
+              <option value="Support">Support</option>
             </select>
             <input type="submit" id="button" value="Sign Up" class="btn" />
           </div>
@@ -72,4 +71,10 @@
       </div>
     </form>
 </body>
+<script>
+  //blocks form resubmission when refreshed
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
 </html>

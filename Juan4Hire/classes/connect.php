@@ -28,9 +28,9 @@ class Database
             while($row= mysqli_fetch_assoc($result))
             {
                 $data[] = $row;
-
             }
-         return $data;
+            return $data;
+       
         }
     }
 
