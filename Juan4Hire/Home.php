@@ -45,19 +45,24 @@ $users = $user->get_users($id);
     <title>Homepage</title>
 </head>
 <body>
-    <section class="content-container">
-                  <?php
+    <div class="row">
+        <div class="column">
+            <div class="content-container">
+            <?php
 
-                    if($users)
-                    {
-                        foreach ($users as $ROW)
-                        {
-                                include ("users.php");
-                         
-                        }
-                    }
-                ?>
-    </section>
+            if($users)
+            {
+                foreach ($users as $ROW)
+                {
+                        include ("users.php");
+                    
+                }
+            }
+            ?>
+            </div>
+        </div>
+    </div>
+    
    <div class="footer-container">
        <div class="footer">
            <div class="footer-heading footer-1">
