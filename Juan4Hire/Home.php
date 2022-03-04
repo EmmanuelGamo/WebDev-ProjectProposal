@@ -4,33 +4,13 @@ include("classes/connect.php");
 include("classes/login.php");
 include("classes/user.php");
 include("classes/post.php");
+include("classes/profile.php");
 
-if(isset($_SESSION['juan4hire_userid'])&&is_numeric($_SESSION['juan4hire_userid']))
-{
-    $id = $_SESSION['juan4hire_userid'];
-    $login = new Login();
-    $result = $login->check_user($id);
 
-    if($result)
-         {
-           //retrieving user data
-           $user = new User();
-           $userdata = $user->get_userdata($id);
-        if(!$userdata)
-            {
-                include("logoutheader.php");
-            }
-            else
-            { 
-                include("logoutheader.php");
-               
-            }
-        }
-}
-else
-{
-    include("header.php");
-}
+$login = new Login();
+$userdata = $login->check_user($_SESSION['juan4hire_userid']);
+include("logoutheader.php");
+
 $user = new User();
 $id = $_SESSION['juan4hire_userid'];
 $users = $user->get_users($id);
@@ -45,7 +25,7 @@ $users = $user->get_users($id);
     <title>Homepage</title>
 </head>
 <body>
-    <div class="row">
+<div class="row">
         <div class="column">
             <div class="content-container">
             <?php
@@ -62,7 +42,6 @@ $users = $user->get_users($id);
             </div>
         </div>
     </div>
-    
    <div class="footer-container">
        <div class="footer">
            <div class="footer-heading footer-1">

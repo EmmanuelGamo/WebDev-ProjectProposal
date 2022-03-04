@@ -45,9 +45,8 @@ class Post
         {
             return false;
         }
-
-
     }
+
     private function create_postid()
     {
             $length = rand(4,19);

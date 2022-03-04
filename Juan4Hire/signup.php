@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
   include("classes/connect.php");
   include("classes/signup.php");
@@ -24,7 +25,7 @@
        echo(
          "<script LANGUAGE='JavaScript'>
            window.alert('Your account has been successfully created');
-         window.location.href='login.php';
+         window.location.href='index.php';
         </script>");
        die;
     }
@@ -34,7 +35,6 @@
     $email = $_POST['email'];
   }
 ?> 
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">

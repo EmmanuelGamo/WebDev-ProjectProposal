@@ -1,6 +1,5 @@
 <?php
 session_start();
-
   include("classes/connect.php");
   include("classes/login.php");
   
@@ -27,10 +26,8 @@ session_start();
        header("Location: Home.php");
        die;
     }
-
     $email = $_POST['email'];
     $password = $_POST['password'];
-
   }
 
 ?> 

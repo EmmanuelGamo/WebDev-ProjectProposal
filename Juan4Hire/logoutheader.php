@@ -6,7 +6,6 @@
     <link rel = "stylesheet" type = "text/css" href="header.css">
     <title>Homepage</title>
 </head>
-
 <body>
     <div class = "navbar">
         <a class="logo" href="Home.php"><img src="J4Hlogo.png" alt="logo"></a>

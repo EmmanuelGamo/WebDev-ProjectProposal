@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php 
-
 session_start();
 include("classes/connect.php");
 include("classes/login.php");
@@ -8,50 +7,26 @@ include("classes/user.php");
 include("classes/post.php");
 include("classes/image.php");
 include("classes/updateprofile.php");
-
-$first_name = "";
-$last_name = "";
-$email = "";
-
+include("classes/profile.php");
 function function_alert($message) 
 { 
     echo "<script>alert('$message');</script>";
 }
 
-if(isset($_SESSION['juan4hire_userid'])&&is_numeric($_SESSION['juan4hire_userid']))
-    {
-        $id = $_SESSION['juan4hire_userid'];
-        $login = new Login();
-        $result = $login->check_user($id);
-
-        if($result)
-        {
-            //retrieving user data
-            $user = new User();
-            $userdata = $user->get_userdata($id);
-            if(!$userdata)
-            {
-                header("Location:index.php");
-                die;
-            }
-        }else
-        {
-            header("Location:index.php");
-            die;
-        }
-    }
-    else
-    {
-        header("Location:index.php");   
-        die;
-    }
+$login = new Login();
+$userdata = $login->check_user($_SESSION['juan4hire_userid']);
+$profile = new Profile();
+$profile_data = $profile->get_profile($_GET['id']);
+if(is_array($profile_data))
+{
+$userdata = $profile_data[0];
+}
 
 //posting
 if(isset($_POST['upload'])) 
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST')
         {
-           
             $post = new Post();
             $id = $_SESSION['juan4hire_userid'];
             $result = $post->create_post($id, $_POST, $_FILES);
@@ -61,7 +36,6 @@ if(isset($_POST['upload']))
                 window.location.href='profile.php';
                </script>");
               die;
-        
         }
         else
         {
@@ -116,16 +90,16 @@ elseif(isset($_POST['change']))
                     </script>");
                 die;
             }
-            
-     
         } 
     }
     //get posts
     $post = new Post();
-    $id = $_SESSION['juan4hire_userid'];
+    $id = $userdata['userid'];
     $posts = $post->get_posts($id);
     $image_class = new Image();
-    
+
+    //other profile
+
 ?>
 <html>
 <head>
@@ -226,7 +200,6 @@ elseif(isset($_POST['change']))
                 ?>
         </div>
 	</div>
-   
 </main>
 
 <script>
@@ -259,10 +232,30 @@ elseif(isset($_POST['change']))
         modal2.style.display = "none";
    
     }
-    window.onclick = function(event) {
+    window.onclick = function(event)
+    {
         if (event.target == modal) 
         {
             modal2.style.display = "none";
+        }
+    }
+    var modal3 = document.getElementById("ViewModal");
+    var btn3 = document.getElementById("myImg");
+    var span3 = document.getElementsByClassName("close3")[0];
+    btn3.onclick = function()
+    {
+        modal3.style.display = "block";
+    }
+    span3.onclick = function() 
+    {
+        modal3.style.display = "none";
+   
+    }
+    window.onclick = function(event)
+    {
+        if (event.target == modal) 
+        {
+            modal3.style.display = "none";
         }
     }
 //blocks form resubmission when refreshed

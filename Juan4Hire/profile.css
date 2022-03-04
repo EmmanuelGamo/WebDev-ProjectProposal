@@ -177,6 +177,13 @@ img {
     padding: 10px;
     background-color: white;
 }
+.imagearea
+{
+    border: solid thin #aaa; 
+    padding: 10px;
+    background-color: white;
+   
+}
 .profilearea{ 
     border: solid thin #aaa; 
     padding: 1px;
@@ -240,7 +247,7 @@ textarea{
    border-radius: 3px;
   
 }
-  .close, .close2 {
+  .close, .close2 ,.close3 {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
@@ -286,3 +293,6 @@ textarea{
     cursor: pointer;
     border-radius: 3px;
   }
+
+
+  
