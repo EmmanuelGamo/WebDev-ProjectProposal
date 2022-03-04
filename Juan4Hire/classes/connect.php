@@ -25,7 +25,6 @@ class Database
         }
         else
         {
-            $data = false;
             while($row= mysqli_fetch_assoc($result))
             {
                 $data[] = $row;

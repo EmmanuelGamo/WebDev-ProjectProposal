@@ -10,9 +10,7 @@
 <body>
     <div class = "navbar">
         <a class="logo" href="Home.php"><img src="J4Hlogo.png" alt="logo"></a>
-        <form method="get" action="search.php">
-        <input class="search" name="find" placeholder="Search" type="text">
-        </form>
+        <input class="search" placeholder="Search" type="text" >
         <nav>
             <ul class="nav_links">
                 <li><a href="Home.php">Home</a></li>

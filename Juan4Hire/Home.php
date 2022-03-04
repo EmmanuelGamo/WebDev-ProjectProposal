@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php 
 session_start();
 include("classes/connect.php");
@@ -36,7 +37,7 @@ $id = $_SESSION['juan4hire_userid'];
 $users = $user->get_users($id);
 
 ?>
-<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">

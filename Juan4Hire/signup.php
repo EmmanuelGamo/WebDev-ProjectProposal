@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
   include("classes/connect.php");
   include("classes/signup.php");
@@ -34,7 +35,7 @@
     $email = $_POST['email'];
   }
 ?> 
-<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">
