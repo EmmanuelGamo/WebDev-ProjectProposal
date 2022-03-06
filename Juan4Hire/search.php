@@ -34,11 +34,14 @@
 <html>
     <head>
         <title>Search</title>
+        <link rel = "stylesheet" type = "text/css" href="searchstyle.css">
     </head>
     <body>
-        <br>
-        <? include("header.php"); ?>
-        <form method="post">
+    <?php include("logoutheader.php"); ?>
+        <br><div class="row">
+        <div class="column">
+            <div class="content-container">
+            <form method="post">
         <?php
             $User= new User();
             $image_class = new Image();
@@ -53,5 +56,9 @@
             }
         ?>
         </form>
+            </div>
+        </div>
+    </div>
+     
     </body>
 </html>

@@ -7,6 +7,7 @@
 	    	}
     ?>
 	<img src= <?php echo $post_image ?> class="gallery-image" alt="" id = "myImg">
+   
 </div>
 
 <div id="ViewModal" class="modal">

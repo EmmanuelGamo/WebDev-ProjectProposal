@@ -253,6 +253,13 @@ textarea{
     font-size: 28px;
     font-weight: bold;
   }
+
+  .delete{
+    color: #000000;
+    float: right;
+    font-size: 25px;
+    font-weight: bold;
+  }
   
   .close:hover,.close2:hover,
   .close:focus,close2:hover {
