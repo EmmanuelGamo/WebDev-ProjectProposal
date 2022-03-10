@@ -10,7 +10,10 @@ body {
     height: 30x;
     margin: 10px 0px 10px 0px;
 }
-
+h1{
+    text-align: center;
+    margin-top: 90px;
+}
 
 .search {
     border: 1px solid grey;
@@ -27,7 +30,7 @@ body {
 .content-container {
     display: flex;
     position: absolute;
-    top: 80px;
+    top: 130px;
     overflow: visible;
     z-index: 0;
     justify-content: center;

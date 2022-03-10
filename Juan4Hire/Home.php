@@ -9,7 +9,6 @@ include("classes/profile.php");
 
 $login = new Login();
 $userdata = $login->check_user($_SESSION['juan4hire_userid']);
-include("logoutheader.php");
 
 $user = new User();
 $id = $_SESSION['juan4hire_userid'];
@@ -25,6 +24,7 @@ $users = $user->get_users($id);
     <title>Homepage</title>
 </head>
 <body>
+<?php include("logoutheader.php"); ?>  
 <div class="row">
         <div class="column">
             <div class="content-container">

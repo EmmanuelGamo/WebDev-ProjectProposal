@@ -25,9 +25,6 @@
         $DB = new Database();
         $results = $DB->read($sql);
     }
-    
-
-
 ?>
 
 <!DOCTYPE html>

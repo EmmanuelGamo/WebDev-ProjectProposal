@@ -46,6 +46,38 @@ class Post
             return false;
         }
     }
+    public function get_one_post($postid)
+    {
+
+        if(!is_numeric($postid))
+        {
+            return false;
+        }
+        $query = "select * from posts where postid = '$postid' limit 1";
+        $DB = new Database();
+        $result = $DB->read($query);
+
+        if($result)
+        {
+            return $result[0];
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public function delete_post($postid)
+    {
+
+        if(!is_numeric($postid))
+        {
+            return false;
+        }
+        $query = "delete from posts where postid = '$postid' limit 1";
+        $DB = new Database();
+        $DB->save($query);
+        
+    }
 
     private function create_postid()
     {

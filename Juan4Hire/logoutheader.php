@@ -15,13 +15,20 @@
         <nav>
             <ul class="nav_links">
                 <li><a href="Home.php">Home</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Messages</a></li>
+                <li>
+                    <a href="#">Categories</a>
+                     <ul>
+                        <li><a href="category.php?id=000">Arts & Design</a></li>
+                        <li><a href="category.php?id=001">Electronics</a></li>
+                        <li><a href="category.php?id=010">Handcraft</a></li>
+                        <li><a href="category.php?id=011">Support</a></li>
+                    </ul>
+                </li>
+                <li><a href="messages.php">Messages</a></li>
                 <li><a href="profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
     </div>
 </body>
-</html>
 </html>

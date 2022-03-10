@@ -49,6 +49,21 @@ class User
             return false;
         }
     }
+    public function get_category($id,$category)
+    {
+        $query = "select * from users where (userid != $id) and (category like '%$category%')" ;
+        $DB = new Database();
+        $result = $DB->read($query);
+         if($result)
+        {
+        
+            return  $result;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 
 ?>

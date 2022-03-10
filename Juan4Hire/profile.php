@@ -15,12 +15,6 @@ function function_alert($message)
 
 $login = new Login();
 $userdata = $login->check_user($_SESSION['juan4hire_userid']);
-$profile = new Profile();
-$profile_data = $profile->get_profile($_GET['id']);
-if(is_array($profile_data))
-{
-$userdata = $profile_data[0];
-}
 
 //posting
 if(isset($_POST['upload'])) 
@@ -127,10 +121,53 @@ elseif(isset($_POST['change']))
         </div>
 
         <div class="profile-user-settings">
+        <h1 class="profile-user-name"><?php echo $userdata['first_name'] . " " . $userdata['last_name']?></h1>
+        <button class="btn profile-edit-btn" id = "editprof" >Edit Profile</button>
+        </div>
+        <div class="profile-bio">
 
-            <h1 class="profile-user-name"><?php echo $userdata['first_name'] . " " . $userdata['last_name']?></h1>
-            <button class="btn profile-edit-btn" id = "editprof" >Edit Profile</button>
-            <div id="editModal" class="modal">
+        <p><span class="profile-email"><?php echo $userdata['email']?></span><br>
+            <span class="profile-category">Area of Expertise: <?php echo $userdata['category']?></span><br>
+            <p class = "description"> <?php echo $userdata['description']?>
+            </p>
+        </div>
+    </div>
+
+    <div class = "btn-container">
+        <button class="post" id="postbtn">Post something</button>
+    </div>
+    <div id="postModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="postarea"> 
+                <form method="post" enctype="multipart/form-data"> 
+                    <input type = "file" name = "file">
+                    <textarea name = "post" placeholder="Description of Photo"></textarea> 
+                    <input class ="post_button" name ="upload" type= "submit" value = "Post"/>
+                    <br>
+                </form>
+            </div>
+        </div>  
+    </div>
+    <div class = "divider"><span class ="dividertext">Portfolio</span></div>
+</div>
+<main>
+	<div class="container">
+        <div class="gallery">
+                <?php
+                    if($posts)
+                    {
+                        foreach ($posts as $ROW)
+                        {
+                                include ("portfolio.php");
+                         
+                        }
+                    }
+                ?>
+        </div>
+	</div>
+</main>
+<div id="editModal" class="modal">
                 <div class="modal-content">
                     <span class="close2">&times;</span>
                     <div class="profilearea"> 
@@ -157,51 +194,17 @@ elseif(isset($_POST['change']))
                     </div>
                 </div>  
              </div>
-        </div>
-
-        <div class="profile-bio">
-        <p><span class="profile-email"><?php echo $userdata['email']?></span><br>
-            <span class="profile-category">Area of Expertise: <?php echo $userdata['category']?></span><br>
-            <p class = "description"> <?php echo $userdata['description']?>
-            </p>
-        </div>
-    </div>
-    <div class = "btn-container">
-        <button class="post" id="postbtn">Post something</button>
-    </div>
-    <div id="postModal" class="modal">
+<div id="ViewModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="postarea"> 
-                <form method="post" enctype="multipart/form-data"> 
-                    <input type = "file" name = "file">
-                    <textarea name = "post" placeholder="Description of Photo"></textarea> 
-                    <input class ="post_button" name ="upload" type= "submit" value = "Post"/>
-                    <br>
-                </form>
+            <span class="close3">&times;</span>
+            <div class="imagearea"> 
+            <?php
+                                include ("viewImage.php");
+  
+                ?>
             </div>
         </div>  
-    </div>
-    <div class = "divider"><span class ="dividertext">Portfolio</span></div>
 </div>
-<main>
-	<div class="container">
-        <div class="gallery">
-                <?php
-
-                    if($posts)
-                    {
-                        foreach ($posts as $ROW)
-                        {
-                                include ("portfolio.php");
-                         
-                        }
-                    }
-                ?>
-        </div>
-	</div>
-</main>
-
 <script>
     var modal = document.getElementById("postModal");
     var btn = document.getElementById("postbtn");
@@ -242,9 +245,9 @@ elseif(isset($_POST['change']))
     var modal3 = document.getElementById("ViewModal");
     var btn3 = document.getElementById("myImg");
     var span3 = document.getElementsByClassName("close3")[0];
-    btn3.onclick = function()
-    {
-        modal3.style.display = "block";
+    function openModal()
+     {
+  document.getElementById("ViewModal").style.display = "block";
     }
     span3.onclick = function() 
     {
@@ -261,10 +264,6 @@ elseif(isset($_POST['change']))
 //blocks form resubmission when refreshed
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
-}
-
-function preview() {
-    frame.src=URL.createObjectURL(event.target.files[0]);
 }
 </script>
 </body>

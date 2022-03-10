@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php 
 session_start();
 include("classes/connect.php");
@@ -60,7 +59,6 @@ elseif(isset($_POST['change']))
                     
                     $DB = new Database(); 
                     $DB->save($query);
-    
                 }
             }
             else
@@ -101,6 +99,7 @@ elseif(isset($_POST['change']))
     //other profile
 
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -129,34 +128,6 @@ elseif(isset($_POST['change']))
         <div class="profile-user-settings">
 
             <h1 class="profile-user-name"><?php echo $userdata['first_name'] . " " . $userdata['last_name']?></h1>
-           
-            <div id="editModal" class="modal">
-                <div class="modal-content">
-                    <span class="close2">&times;</span>
-                    <div class="profilearea"> 
-                        <form method="post" enctype="multipart/form-data"> 
-                            <div class="change-profile-image">
-                                <img id="frame" src= <?php echo $image ?> alt="">
-                            </div>
-                            <input class="changeprofile" type = "file" name = "file" onchange="preview()"><br><br>
-                   
-                            <input type = "text" class = "textarea" name = "first_name" value = "<?php echo $userdata['first_name']?>"><br><br>
-                            <input type = "text" class = "textarea" name = "last_name" value = "<?php echo $userdata['last_name']?>"><br><br>
-                            <input type = "text" class = "textarea" name = "email" value = "<?php echo $userdata['email']?>"><br><br>
-                            <select name="category" class="category">
-                            <option value="<?php echo $userdata['category']?>"><?php echo $userdata['category']?></option>
-                            <option value="Arts & Design">Arts & Design</option>
-                            <option value="Electronics">Electronics</option>
-                            <option value="Handcraft">Handcraft</option>
-                            <option value="Support">Support</option>
-                            </select> <br><br> 
-                            <input type = "text" class="textarea-description" name = "description" value = "<?php echo $userdata['description']?>">
-                            <input class ="save_button" name="change" type= "submit" value = "Save"/>
-                            <br>
-                        </form>
-                    </div>
-                </div>  
-             </div>
         </div>
 
         <div class="profile-bio">
@@ -166,85 +137,48 @@ elseif(isset($_POST['change']))
             </p>
         </div>
     </div>
-    <div class = "btn-container">
-     
-    </div>
-    <div id="postModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="postarea"> 
-                <form method="post" enctype="multipart/form-data"> 
-                    <input type = "file" name = "file">
-                    <textarea name = "post" placeholder="Description of Photo"></textarea> 
-                    <input class ="post_button" name ="upload" type= "submit" value = "Post"/>
-                    <br>
-                </form>
-            </div>
-        </div>  
-    </div>
+    <div class="btn-container">
+    <a href = "Home.php">
+            <input type ="button" class="btn profile-msg-btn" value ="Message">
+                </a>
+        </div>
+        <br>
     <div class = "divider"><span class ="dividertext">Portfolio</span></div>
 </div>
 <main>
 	<div class="container">
         <div class="gallery">
                 <?php
-
+              
                     if($posts)
-                    {
+                    {   
                         foreach ($posts as $ROW)
                         {
-                                include ("portfolio.php");
-                         
+                                include ("othersportfolio.php");
                         }
                     }
                 ?>
         </div>
 	</div>
 </main>
-
+<div id="ViewModal" class="modal">
+        <div class="modal-content">
+            <span class="close3">&times;</span>
+            <div class="imagearea"> 
+            <?php
+                                include ("viewImage.php");
+                        
+                ?>
+            </div>
+        </div>  
+</div>
 <script>
-    var modal = document.getElementById("postModal");
-    var btn = document.getElementById("postbtn");
-    var span = document.getElementsByClassName("close")[0];
-    btn.onclick = function()
-    {
-        modal.style.display = "block";
-    }
-    span.onclick = function() 
-    {
-        modal.style.display = "none";
-    }
-    window.onclick = function(event) {
-        if (event.target == modal) 
-        {
-            modal.style.display = "none";
-        }
-    }
-    var modal2 = document.getElementById("editModal");
-    var btn2 = document.getElementById("editprof");
-    var span2 = document.getElementsByClassName("close2")[0];
-    btn2.onclick = function()
-    {
-        modal2.style.display = "block";
-    }
-    span2.onclick = function() 
-    {
-        modal2.style.display = "none";
-   
-    }
-    window.onclick = function(event)
-    {
-        if (event.target == modal) 
-        {
-            modal2.style.display = "none";
-        }
-    }
     var modal3 = document.getElementById("ViewModal");
     var btn3 = document.getElementById("myImg");
     var span3 = document.getElementsByClassName("close3")[0];
-    btn3.onclick = function()
-    {
-        modal3.style.display = "block";
+    function openModal()
+     {
+  document.getElementById("ViewModal").style.display = "block";
     }
     span3.onclick = function() 
     {
@@ -261,10 +195,6 @@ elseif(isset($_POST['change']))
 //blocks form resubmission when refreshed
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
-}
-
-function preview() {
-    frame.src=URL.createObjectURL(event.target.files[0]);
 }
 </script>
 </body>

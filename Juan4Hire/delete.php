@@ -1,0 +1,148 @@
+<?php 
+session_start();
+include("classes/connect.php");
+include("classes/login.php");
+include("classes/user.php");
+include("classes/post.php");
+include("classes/image.php");
+include("classes/updateprofile.php");
+include("classes/profile.php");
+function function_alert($message) 
+{ 
+    echo "<script>alert('$message');</script>";
+}
+$login = new Login();
+$userdata = $login->check_user($_SESSION['juan4hire_userid']);
+$POST = new Post();
+$ERROR = "";
+
+if(isset($_GET['id']))
+{
+    $row = $POST->get_one_post($_GET['id']);
+    if(!$row)
+    {
+        $ERROR = "No such image was found!";
+
+    }
+}
+else
+{
+    $ERROR = "No such image was found!";  
+}
+
+
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{   
+    $POST->delete_post($_POST['postid']);
+    echo(
+        "<script LANGUAGE='JavaScript'>
+          window.alert('Your portfolio has been updated');
+        window.location.href='profile.php';
+       </script>");
+    die;
+}
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete | Juan4Hire</title>
+    <style>
+            :root 
+            {
+                font-size: 10px;
+            }
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            body {
+                font-family: "Open Sans", Arial, sans-serif;
+                min-height: 100vh;
+                background-color: #fafafa;
+                color: #262626;
+                padding-bottom: 3rem;
+            }
+            .container{
+                margin-top: 10rem;
+                min-height: 400px;
+                flex:2.5;
+                padding: 20px;
+                padding-right: 0px;
+            }
+            .qtn-container
+            {
+                margin: auto;
+                width: 800px;
+                border: solid thin #aaa;
+                padding: 10px;
+                background-color: white;
+            }
+            .btn-container{
+                    text-align: right;
+                }
+            .profile-del-btn {
+                width: 10%;
+                background-color: #9BF89D;
+                border: 1px solid #9BFA9D;
+                padding: 12px 12px;
+                color: #fff;
+                font-weight: bold;
+                cursor: pointer;
+                border-radius: 3px;
+            }
+            .image{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+                border: solid thin #aaa;
+                padding: 10px;
+            }
+            h3{
+                text-align: center;
+                font-weight: bold;
+
+            }
+           .close{
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+    </style>
+</head>
+<body>
+<?php  include("logoutheader.php");?>
+<div class="container">
+         
+        <div class="qtn-container">
+        <a href = "profile.php">
+        <span class="close">&times;</span>
+        </a>
+            <form method= "post">
+            <?php 
+            if($ERROR != "")
+                {
+                    echo "<h2>No such image was found!</h2><br>";
+                }
+         
+            if($row){
+            echo "<h2>Are you sure you want to delete this image?</h2><br>";
+            
+                     include("del_image.php");
+            }       
+            ?>   
+                <div class="btn-container">
+                    
+                    <input type ="hidden" name="postid" value ="<?php echo $row['postid']?>">
+                    <input type ="submit" class="btn profile-del-btn" value ="Delete">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
