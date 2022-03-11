@@ -7,13 +7,13 @@
     <title>Homepage</title>
 </head>
 <body>
-    <div class = "navbar">
+    <div class = "navbar" >
         <a class="logo" href="Home.php"><img src="J4Hlogo.png" alt="logo"></a>
         <form method="get" action="search.php">
         <input class="search" name="find" placeholder="Search" type="text">
         </form>
         <nav>
-            <ul class="nav_links">
+            <ul class="nav_links" id = "mynavbar">
                 <li><a href="Home.php">Home</a></li>
                 <li>
                     <a href="#">Categories</a>

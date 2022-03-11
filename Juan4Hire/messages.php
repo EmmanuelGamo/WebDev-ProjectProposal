@@ -14,16 +14,6 @@ function function_alert($message)
 $login = new Login();
 $userdata = $login->check_user($_SESSION['juan4hire_userid']);
 
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{   
-    $POST->delete_post($_POST['postid']);
-    echo(
-        "<script LANGUAGE='JavaScript'>
-          window.alert('Your portfolio has been updated');
-        window.location.href='profile.php';
-       </script>");
-    die;
-}
 
 ?>
 <!DOCTYPE html>
@@ -97,21 +87,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <div class="container">
         <div class="qtn-container">
             <form method= "post">
-            <?php 
-            if($ERROR != "")
-                {
-                    echo "<h2>No such image was found!</h2><br>";
-                }
-         
-            if($row){
-            echo "<h2>Are you sure you want to delete this image?</h2><br>";
-            
-                     include("message.php");
-            }       
-            ?>   
-                <div class="btn-container">
-                    <input type ="hidden" name="postid" value ="<?php echo $row['postid']?>">
-                    <input type ="submit" class="btn profile-del-btn" value ="Delete">
+       
+     
                 </div>
             </form>
         </div>

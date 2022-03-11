@@ -55,7 +55,6 @@ session_start();
               <input name = "email" type="text" value="<?php echo $email ?>"  placeholder="Email" class="uname" />
               <div class="overlap-text">
                 <input name = "password" type="password" value="<?php echo $password ?>"  placeholder="Password" class="pass" />
-                <a href="#">Forgot?</a>
               </div>
               <input type="submit" value="Log in" class="btn" />
           </form>
@@ -63,7 +62,7 @@ session_start();
       </div>
       <div class="sub-content">
         <div class="signup">
-          Don't have an account?<a href="signup.php"> Sign up</a>
+          Don't have an account?<a href="signup_user.php"> Sign up</a>
         </div>
       </div>
     </div>
