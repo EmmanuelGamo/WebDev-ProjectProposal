@@ -3,7 +3,6 @@ session_start();
   include("classes/connect.php");
   include("classes/login.php");
   
-  
   function function_alert($message) 
   { 
       echo "<script>alert('$message');</script>";
@@ -20,6 +19,10 @@ session_start();
     if ($result != "")
     {
       function_alert("$result");
+    }
+    elseif($_SESSION['acc_level'] == "0"){
+        header("Location: adminPage.php");
+        die;
     }
     else
     {

@@ -1,10 +1,7 @@
 <?php
-
 class Login
-
 {   
     private $error = "";
-
 
     public function evaluate($data)
     {
@@ -23,6 +20,7 @@ class Login
             if($password == $row['password'])
             {
                 $_SESSION['juan4hire_userid'] =  $row['userid'];
+                $_SESSION['acc_level'] =  $row['acc_type'];
             }else
             {
                 $this->error .= "Wrong password";
@@ -58,9 +56,8 @@ class Login
         {
             header("Location:index.php");   
             die;
-        }
-
-    }
-}
+        }   
+    }  
+}   
 
 ?>

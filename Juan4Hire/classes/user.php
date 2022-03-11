@@ -36,7 +36,7 @@ class User
     }
     public function get_users($id)
     {
-        $query = "select * from users where userid != $id";
+        $query = "select * from users where userid != $id and (acc_type like '1')";
         $DB = new Database();
         $result = $DB->read($query);
          if($result)
