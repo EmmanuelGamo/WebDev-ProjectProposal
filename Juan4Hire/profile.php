@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php 
 session_start();
 include("classes/connect.php");
@@ -95,6 +94,7 @@ elseif(isset($_POST['change']))
     //other profile
 
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">

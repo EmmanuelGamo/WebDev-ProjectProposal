@@ -44,14 +44,8 @@ $users = $user->get_users($id);
     </div>
    <div class="footer-container">
        <div class="footer">
-           <div class="footer-heading footer-1">
-               <a href="#">Contact us</a>
-           </div>
-           <div class="footer-heading footer-2">
-               <a href="#">Privacy Policy</a>
-           </div>
-           <div class="footer-heading footer-3">
-               <a href="#">Terms of Service</a>
+           <div class="footer-heading">
+               <a href="terms.php">Terms of Service</a>
            </div>
        </div>
    </div>

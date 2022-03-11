@@ -3,6 +3,7 @@ body {
     margin: 0px;
     display: flex;
     flex-direction: column;
+    background-color: #CAFA84;
  }
 
 .logo {
@@ -61,6 +62,7 @@ li, a {
 
 /*content*/
 .content-container {
+    display: flex;
     position: absolute;
     top: 80px;
     overflow: visible;
