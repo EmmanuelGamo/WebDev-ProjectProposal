@@ -1,5 +1,11 @@
 <?php
+    session_start();
+    include("classes/connect.php");
+    include("classes/login.php");
     $connect = mysqli_connect("localhost", "root", "", "juan4hire_db");
+    if($_SESSION['acc_level'] != "0"){
+        header('location: home.php');
+    }
     $output = '';
     $query = "SELECT * FROM users";
     $result = mysqli_query($connect, $query);

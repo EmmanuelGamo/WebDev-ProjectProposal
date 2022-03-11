@@ -1,9 +1,16 @@
 <?php
+    session_start();
+    include("classes/connect.php");
+    include("classes/login.php");
     $connect = mysqli_connect("localhost", "root", "", "juan4hire_db");
+    if($_SESSION['acc_level'] != "0"){
+        header('location: home.php');
+    }
     $output = '';
     $query = "SELECT * FROM posts";
     $result = mysqli_query($connect, $query);
     $output .='
+    
         <br/>
         <table style="width: 80px; margin:20px" class="table table-bordered table-striped">
             <tr>
