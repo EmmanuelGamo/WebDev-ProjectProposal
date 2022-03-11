@@ -54,7 +54,6 @@ elseif(isset($_POST['change']))
                     
                     $DB = new Database(); 
                     $DB->save($query);
-    
                 }
             }
             else
@@ -93,12 +92,7 @@ elseif(isset($_POST['change']))
     $image_class = new Image();
 
     //other profile
-    if($_SESSION['acc_level'] == "2")
-    {
-        header("Location: useronly.php");
-        die;
-    
-    }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -106,7 +100,7 @@ elseif(isset($_POST['change']))
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile | Juan4Hire</title>
-    <link rel = "stylesheet" type = "text/css" href="profile.css">
+    <link rel = "stylesheet" type = "text/css" href="useronly.css">
 </head>
 <body>
 <?php  include("logoutheader.php");?>
@@ -132,50 +126,13 @@ elseif(isset($_POST['change']))
         </div>
         <div class="profile-bio">
 
+        <div class="profile-bio">
         <p><span class="profile-email"><?php echo $userdata['email']?></span><br>
-            <span class="profile-category">Area of Expertise: <?php echo $userdata['category']?></span><br>
-            <p class = "description"> <?php echo $userdata['description']?>
             </p>
         </div>
     </div>
-  
-    <div class = "btn-container">
-    
-        <button class="post" id="postbtn">Post something</button>
 
-    </div>
-               
-    <div id="postModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="postarea"> 
-                <form method="post" enctype="multipart/form-data"> 
-                    <input type = "file" name = "file">
-                    <textarea name = "post" placeholder="Description of Photo"></textarea> 
-                    <input class ="post_button" name ="upload" type= "submit" value = "Post"/>
-                    <br>
-                </form>
-            </div>
-        </div>  
-    </div>
-    <div class = "divider"><span class ="dividertext">Portfolio</span></div>
 </div>
-<main>
-	<div class="container">
-        <div class="gallery">
-                <?php
-                    if($posts)
-                    {
-                        foreach ($posts as $ROW)
-                        {
-                                include ("portfolio.php");
-                         
-                        }
-                    }
-                ?>
-        </div>
-	</div>
-</main>
 <div id="editModal" class="modal">
                 <div class="modal-content">
                     <span class="close2">&times;</span>
@@ -189,50 +146,14 @@ elseif(isset($_POST['change']))
                             <input type = "text" class = "textarea" name = "first_name" value = "<?php echo $userdata['first_name']?>"><br><br>
                             <input type = "text" class = "textarea" name = "last_name" value = "<?php echo $userdata['last_name']?>"><br><br>
                             <input type = "text" class = "textarea" name = "email" value = "<?php echo $userdata['email']?>"><br><br>
-                            <select name="category" class="category">
-                            <option value="<?php echo $userdata['category']?>"><?php echo $userdata['category']?></option>
-                            <option value="Arts & Design">Arts & Design</option>
-                            <option value="Electronics">Electronics</option>
-                            <option value="Handcraft">Handcraft</option>
-                            <option value="Support">Support</option>
-                            </select> <br><br> 
-                            <input type = "text" class="textarea-description" name = "description" value = "<?php echo $userdata['description']?>">
                             <input class ="save_button" name="change" type= "submit" value = "Save"/>
                             <br>
                         </form>
                     </div>
                 </div>  
              </div>
-<div id="ViewModal" class="modal">
-        <div class="modal-content">
-            <span class="close3">&times;</span>
-            <div class="imagearea"> 
-            <?php
-                                include ("viewImage.php");
-  
-                ?>
-            </div>
-        </div>  
-</div>
 <script>
-    var modal = document.getElementById("postModal");
-    var btn = document.getElementById("postbtn");
-    var span = document.getElementsByClassName("close")[0];
-    btn.onclick = function()
-    {
-        modal.style.display = "block";
-    }
-    span.onclick = function() 
-    {
-        modal.style.display = "none";
-    }
-    window.onclick = function(event) {
-        if (event.target == modal) 
-        {
-            modal.style.display = "none";
-        }
-    }
-    var modal2 = document.getElementById("editModal");
+     var modal2 = document.getElementById("editModal");
     var btn2 = document.getElementById("editprof");
     var span2 = document.getElementsByClassName("close2")[0];
     btn2.onclick = function()
@@ -249,25 +170,6 @@ elseif(isset($_POST['change']))
         if (event.target == modal) 
         {
             modal2.style.display = "none";
-        }
-    }
-    var modal3 = document.getElementById("ViewModal");
-    var btn3 = document.getElementById("myImg");
-    var span3 = document.getElementsByClassName("close3")[0];
-    function openModal()
-     {
-  document.getElementById("ViewModal").style.display = "block";
-    }
-    span3.onclick = function() 
-    {
-        modal3.style.display = "none";
-   
-    }
-    window.onclick = function(event)
-    {
-        if (event.target == modal) 
-        {
-            modal3.style.display = "none";
         }
     }
 //blocks form resubmission when refreshed

@@ -48,22 +48,26 @@
       <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
       <div id="container">
         <div class="main-content">
-          <div class="logo">
-          <a href="index.php"><img src= "J4Hlogo.png" /><a>
-          </div>
-          <div class="signup">
-            <input value="<?php echo $first_name ?>" type="text" name= "first_name" id="text" placeholder="First Name" class="Fname" />
-            <input value="<?php echo $last_name ?>" type="text" name="last_name" id="text" placeholder="Last Name" class="Lname" />
-            <input type="text" name="email" id="text" placeholder="Email" class="Email" />
-            <input type="password" name="password" id="text" placeholder="Password" class="pass" />
-            <input type="password" name="con_password"  id="text" placeholder="Confirm Password" class="pass" />
-            <input type="submit" id="button" value="Sign Up" class="btn" />
-          </div>
-        <div class="signup_seller">
-          Creating account as a Commissionist?<a href="signup.php"> Sign up here!</a>
+            <div class="logo">
+              <a href="index.php"><img src= "J4Hlogo.png" /><a>
+            </div>
+            <div class="signup">
+              <input value="<?php echo $first_name ?>" type="text" name= "first_name" id="text" placeholder="First Name" class="Fname" />
+              <input value="<?php echo $last_name ?>" type="text" name="last_name" id="text" placeholder="Last Name" class="Lname" />
+              <input type="text" name="email" id="text" placeholder="Email" class="Email" />
+              <input type="password" name="password" id="text" placeholder="Password" class="pass" />
+              <input type="password" name="con_password"  id="text" placeholder="Confirm Password" class="pass" />
+              <input type="submit" id="button" value="Sign Up" class="btn" />
+            </div>
         </div>
-        </div>
+          <div class="sub-content">
+          Create an account as a Commissionist?
+            <div class="signup_seller">
+                 <a href ="signup.php"> Sign up here! </a>
+            </div>
+          </div>
       </div>
+     
     </form>
 </body>
 <script>

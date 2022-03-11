@@ -62,7 +62,7 @@ session_start();
       </div>
       <div class="sub-content">
         <div class="signup">
-          Don't have an account?<a href="signup_user.php"> Sign up</a>
+          Don't have an account? <a href ="signup_user.php"> Sign up</a>
         </div>
       </div>
     </div>

@@ -35,7 +35,6 @@ $users = $user->get_users($id);
                 foreach ($users as $ROW)
                 {
                         include ("users.php");
-                    
                 }
             }
             ?>
